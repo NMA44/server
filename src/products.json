@@ -1,0 +1,66 @@
+[
+	{
+		"id": 1,
+		"title": "Compu",
+		"description": "Nuevita",
+		"code": "has87",
+		"price": 2500,
+		"status": true,
+		"stock": 2,
+		"category": "PC",
+		"thumbnail": []
+	},
+	{
+		"id": 2,
+		"title": "Play 4",
+		"description": "Usada",
+		"code": "has7",
+		"price": 600,
+		"status": true,
+		"stock": 20,
+		"category": "Consolas",
+		"thumbnail": []
+	},
+	{
+		"id": 3,
+		"title": "Play 3",
+		"description": "Usada",
+		"code": "has71",
+		"price": 200,
+		"status": true,
+		"stock": 20,
+		"category": "Consolas",
+		"thumbnail": []
+	},
+	{
+		"id": 4,
+		"title": "Play 5",
+		"description": "Nueva",
+		"code": "has711235",
+		"price": 1800,
+		"status": true,
+		"stock": 20,
+		"category": "Consolas",
+		"thumbnail": []
+	},
+	{
+		"id": 5,
+		"title": "Notebook DELL",
+		"description": "Nueva",
+		"code": "has7asdas",
+		"price": 1200,
+		"status": true,
+		"stock": 20,
+		"category": "Notebook",
+		"thumbnail": []
+	},
+	{
+		"id": "45582629-2c54-4028-bfce-931288b6ed4d",
+		"title": "Parlantes PC",
+		"description": "Inalambricos",
+		"price": 250,
+		"thumbnail": [],
+		"code": "per1234",
+		"stock": 17
+	}
+]
