@@ -1,3 +1,4 @@
+import { error } from 'console';
 import fs from 'fs';
 
 export default class ProductManager{
@@ -13,9 +14,11 @@ export default class ProductManager{
 
     async addProduct(user){
 
-        const {id , title, description, price, thumbnail, code, stock} = user
+        const {id , title, description, price, thumbnail, code, stock, category} = user
+        const status = true;
+        // user.push(status)
 
-        if(!title || !description || !price || !thumbnail || !code || !stock){
+        if(!title || !description || !price || !code || !stock || !category || !status){
             console.error("Se deben completar todos los campos.");
             return;
         }
@@ -30,7 +33,7 @@ export default class ProductManager{
         }
         else{
             const users =  await getJSONFromFile(this.path);
-            const newUser = {id ,title, description, price, thumbnail, code, stock};
+            const newUser = {...user, status};
             users.push(newUser);
             return saveJSONToFile(this.path, users);
         };
@@ -53,27 +56,37 @@ export default class ProductManager{
 
     async updateProducts(id, newData){
         const products = await this.getProducts();
-        const index = products.findIndex((product) =>{
-            return product.id === id;
-        })
 
-        if(index === -1){
-            console.log("producto no encontrado");
-            return;
+
+        try {
+            const index = products.findIndex((product) =>{
+                return product.id == id;
+            })
+            console.log(products[index])
+            if(index === -1){
+                console.log("producto no encontrado");
+                throw new Error("producto no encontrado");
+            }
+
+            const {newTitle, newDescription, newCode, newPrice, newStatus, newStock, newCategory, newThumbnail,} = newData;
+
+            products[index] = {id: id, 
+                title: newTitle !== undefined ? newTitle : products[index].title,
+                description: newDescription !== undefined ? newDescription : products[index].description,
+                code: newCode !== undefined ? newCode : products[index].code,
+                price: newPrice !== undefined ? newPrice : products[index].price,
+                status: newStatus !== undefined ? newStatus : products[index].status,
+                stock: newStock !== undefined ? newStock : products[index].stock,
+                category: newCategory !== undefined ? newCategory : products[index].category,
+                thumbnail: newThumbnail !== undefined ? newThumbnail : products[index].thumbnail
+            };
+
+        } catch (error) {
+            res.status(404).json({message: 'producto no encontrado'})
         }
 
-        const {newTitle, newDescription, newCode, newPrice, newStatus, newStock, newCategory, newThumbnail,} = newData;
-        
-        products[index] = {id: id, 
-            title: newTitle !== undefined ? newTitle : products[index].title,
-            description: newDescription !== undefined ? newDescription : products[index].description,
-            code: newCode !== undefined ? newCode : products[index].code,
-            price: newPrice !== undefined ? newPrice : products[index].price,
-            status: newStatus !== undefined ? newStatus : products[index].status,
-            stock: newStock !== undefined ? newStock : products[index].stock,
-            category: newCategory !== undefined ? newCategory : products[index].category,
-            thumbnail: newThumbnail !== undefined ? newThumbnail : products[index].thumbnail
-        };
+
+
 
         try {
             await saveJSONToFile(this.path, products);
