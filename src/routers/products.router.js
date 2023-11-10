@@ -26,7 +26,7 @@ router.get('/products', async (req, res)=>{
 })
 
 router.get('/products/:id', async (req, res)=>{
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
     const product = await productManager.getProductById(id);
     if(product){
         res.status(200).json({message:'Producto encontrado exitosamente', user:product});

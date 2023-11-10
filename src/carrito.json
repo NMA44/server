@@ -22,6 +22,10 @@
 			{
 				"id": "4",
 				"quantity": 2
+			},
+			{
+				"id": "4215cae8-9053-42ef-87da-cd0fd58e9459",
+				"quantity": 1
 			}
 		]
 	},
@@ -31,6 +35,20 @@
 	},
 	{
 		"id": "0115f951-1b57-47f2-941d-9123d6c2085b",
-		"products": []
+		"products": [
+			{
+				"id": "490dffbb-c58b-4206-8111-e1b005566820",
+				"quantity": 3
+			}
+		]
+	},
+	{
+		"id": "879fe3ce-9b2e-4a40-bac3-92f3a25e9001",
+		"products": [
+			{
+				"id": "4215cae8-9053-42ef-87da-cd0fd58e9459",
+				"quantity": 2
+			}
+		]
 	}
 ]
