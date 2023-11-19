@@ -9,6 +9,6 @@ app.use(express.urlencoded({extended:true}));
 
 app.use('/api', productsRouter, cartRouter);
 
-app.listen(8080, ()=>{
+app.listen(3001, ()=>{
     console.log("Servidor corriendo correctamente.")
 })
